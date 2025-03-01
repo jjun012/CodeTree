@@ -1,0 +1,5 @@
+arr=input().split(".")
+yy=int(arr[0])
+mm=int(arr[1])
+dd=int(arr[2])
+print("%d-%d-%d"%(mm,dd,yy))
