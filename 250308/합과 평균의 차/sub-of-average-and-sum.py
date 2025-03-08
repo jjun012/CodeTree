@@ -1,0 +1,9 @@
+arr=input().split()
+a=int(arr[0])
+b=int(arr[1])
+c=int(arr[2])
+c=a+b+c
+d=c//3
+print(c)
+print(d)
+print(c-d)
