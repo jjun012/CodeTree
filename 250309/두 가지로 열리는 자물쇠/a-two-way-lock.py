@@ -1,36 +1,22 @@
-MAX_NUM = 100
-
 # 변수 선언 및 입력
 n = int(input())
-arr = [0] * (MAX_NUM + 1)
+a, b, c = tuple(map(int, input().split()))
+a2, b2, c2 = tuple(map(int, input().split()))
 
-for _ in range(n):
-    x, c = tuple(input().split())
-    x = int(x)
-    
-    arr[x] = 1 if c == 'G' else 2
 
-# 모든 구간의 시작점을 잡아봅니다.
-max_len = 0
-for i in range(MAX_NUM + 1):
-	for j in range(i + 1, MAX_NUM + 1):
-		# i와 j 위치에 사람이 있는지 확인합니다.
-		if arr[i] == 0 or arr[j] == 0:
-			continue
-		
-		# 해당 구간 내 g와 h의 개수를 구합니다.
-		cnt_g = 0
-		cnt_h = 0
-		
-		for k in range(i, j + 1):
-			if arr[k] == 1:
-				cnt_g += 1
-			if arr[k] == 2:
-				cnt_h += 1
-		
-		# 조건을 만족할 때 구간의 길이를 구해 최댓값과 비교합니다.
-		if cnt_g == 0 or cnt_h == 0 or cnt_g == cnt_h:
-			leng = j - i
-			max_len = max(max_len, leng)
+# 모든 조합을 다 만들어 봅니다.
+cnt = 0
+for i in range(1, n + 1):
+    for j in range(1, n + 1):
+        for k in range(1, n + 1):
+            # 모든 자리가 주어진 첫 조합과의 거리가 2 이내인지 확인합니다.
+            if (abs(a - i) <= 2 or abs(a - i) >= n - 2) and (abs(b - j) <= 2 or abs(b - j) >= n - 2) and \
+               (abs(c - k) <= 2 or abs(c - k) >= n - 2):
+                cnt += 1
+			
+			# 모든 자리가 주어진 두 번째 조합과의 거리가 2 이내인지 확인합니다.
+            elif (abs(a2 - i) <= 2 or abs(a2 - i) >= n - 2) and (abs(b2 - j) <= 2 or abs(b2 - j) >= n - 2) and \
+               (abs(c2 - k) <= 2 or abs(c2 - k) >= n - 2):
+                cnt += 1
 
-print(max_len)
+print(cnt)
