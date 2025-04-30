@@ -8,5 +8,5 @@ for i in range(n,101):
         print('C',end=' ')
     elif i>=60:
         print('D',end=' ')
-    else:
-        print('F')
+    elif i<60:
+        print('F',end=' ')
