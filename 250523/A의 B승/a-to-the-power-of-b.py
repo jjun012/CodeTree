@@ -1,5 +1,5 @@
 a,b=map(int,input().split())
-prod=a
-for i in range(b-1):
+prod=1
+for i in range(b):
     prod*=a
 print(prod)
